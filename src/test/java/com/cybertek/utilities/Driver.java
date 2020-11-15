@@ -23,6 +23,7 @@ public class Driver {
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
                     ChromeOptions chromeOptions = new ChromeOptions();
+                    //run browser without UI
                     chromeOptions.setHeadless(true);
                     driver = new ChromeDriver(chromeOptions);
                     break;

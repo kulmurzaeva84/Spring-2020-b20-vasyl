@@ -20,10 +20,6 @@ public class DataProviderPractice {
     @FindBy(id = "prependedInput2")
     private WebElement passwordElement;
 
-    public DataProviderPractice() {
-        PageFactory.initElements(Driver.getDriver(), this);
-    }
-
     @Test(dataProvider = "usersTestData")
     public void ddtLoginTest1(String userName, String password) {
         //login
@@ -51,6 +47,7 @@ public class DataProviderPractice {
         Driver.getDriver().get("https://qa1.vytrack.com/user/login");
         Driver.getDriver().manage().window().maximize();
         Driver.getDriver().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        PageFactory.initElements(Driver.getDriver(), this);
     }
 
     @AfterMethod

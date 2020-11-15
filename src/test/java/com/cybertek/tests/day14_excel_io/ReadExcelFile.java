@@ -38,6 +38,7 @@ public class ReadExcelFile {
         }
 
         System.out.println("\n####################");
+        //return iterator of rows
         Iterator<Row> rowIterator = sheet.rowIterator();
         while (rowIterator.hasNext()) {
             Iterator<Cell> tempCellIterator = rowIterator.next().cellIterator();

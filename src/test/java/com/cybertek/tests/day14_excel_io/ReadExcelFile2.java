@@ -29,7 +29,7 @@ public class ReadExcelFile2 {
             //inner loop to iterate columns
             for (int columnIndex = 0; columnIndex < colNum; columnIndex++) {
                 String value = sheet.getRow(rowIndex).getCell(columnIndex).getStringCellValue();
-                System.out.print(value + " ");
+                System.out.printf("%15s  ", value);
             }
             System.out.println();
         }

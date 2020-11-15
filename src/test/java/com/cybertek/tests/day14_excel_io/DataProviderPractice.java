@@ -1,6 +1,7 @@
 package com.cybertek.tests.day14_excel_io;
 
 import com.cybertek.utilities.Driver;
+import com.cybertek.utilities.ExcelUtil;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -41,6 +42,16 @@ public class DataProviderPractice {
     //if I have to do something like Scenario Outline in cucumber
     // "same steps, but different test data"
     // what's the solution? - Data provider - method that supplies test with a test data
+
+    //      execute         username         password        firstname         lastname
+
+
+
+    @DataProvider
+    public Object[][] userTestDataFromExcel() {
+        ExcelUtil excelUtil = new ExcelUtil("vytrack_testusers.xlsx", "QA3-short");
+        return excelUtil.getDataArray();
+    }
 
     @BeforeMethod
     public void setup() {

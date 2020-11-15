@@ -4,6 +4,7 @@ import org.apache.poi.ss.usermodel.*;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Iterator;
 
 public class ReadExcelFile {
 
@@ -26,7 +27,26 @@ public class ReadExcelFile {
         String value1 = cell1.getStringCellValue();
         //Step 6. Use value
         System.out.println("Value of 1st row 1st column: " + value1);
+        //get all spreadsheet names
+        //sh - temporary variable
+        workbook.forEach(sh -> System.out.println(sh.getSheetName()));
+        //how do we get a data from entire row?
+        Iterator<Cell> cellIterator = row1.cellIterator();
+        while (cellIterator.hasNext()) {
+            String value = cellIterator.next().getStringCellValue();
+            System.out.print(value + " ");
+        }
 
+        System.out.println("\n####################");
+        Iterator<Row> rowIterator = sheet.rowIterator();
+        while (rowIterator.hasNext()) {
+            Iterator<Cell> tempCellIterator = rowIterator.next().cellIterator();
+            while (tempCellIterator.hasNext()) {
+                String value = tempCellIterator.next().getStringCellValue();
+                System.out.print(value + " ");
+            }
+            System.out.println();
+        }
 
     }
 }

@@ -45,7 +45,13 @@ public class DataProviderPractice {
 
     //      execute         username         password        firstname         lastname
 
-
+    @Test(dataProvider = "userTestDataFromExcel")
+    public void ddtLoginTest2(String execute, String username, String password, String firstname, String lastname){
+        System.out.println("User name is: " + firstname + " " +lastname + ", execute ? " + execute);
+        usernameElement.sendKeys(username);
+        passwordElement.sendKeys(password, Keys.ENTER);
+        System.out.println(Driver.getDriver().getTitle());
+    }
 
     @DataProvider
     public Object[][] userTestDataFromExcel() {

@@ -17,13 +17,17 @@ public class WriteIntoExcelFile {
         FileInputStream file = new FileInputStream(path);
         Workbook workbook = WorkbookFactory.create(file);
         Sheet sheet = workbook.getSheet("QA2-short");
-        Row row1 = sheet.getRow(1);
+        Row row1 = sheet.getRow(2);
         //let's change N/A to PASSED
         Cell cell5 = row1.getCell(4);
 
-        System.out.println("value: " + cell5);
+        System.out.println("before value: " + cell5);
         //to change value from n/a to PASSED
         cell5.setCellValue("PASSED");
+        //after I set new value, read cell again
+        cell5 = row1.getCell(4);
+
+        System.out.println("value after: " + cell5);
 
         //FileOutputStream class used to write data into files
         FileOutputStream fileOutputStream = new FileOutputStream(path);
